@@ -15,6 +15,8 @@ namespace MvcLayer.Components
         {
             var categories = await _serviceManager.CategoryService.GetAllCategoriesAsync(false);
             return View(categories);
+         
+         
         }
     }
 }
