@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Blog>
+@{
+    var blogs = Model.ToList();
+}
+
+
+<div class="site-section bg-light">
+    <div class="container">
+        <div class="row align-items-stretch retro-layout">
+            <div class="col-md-5 order-md-2">
+                @if (blogs.Count > 0)
+                {
+                    <a asp-controller="Blogs" asp-action="GetBlogDetails" asp-route-blogId="@blogs[0].BlogId" class="hentry img-1 h-100 gradient" style="background-image: url('@blogs[0].BlogImageUrl');">
+                        <span class="post-category text-white bg-danger">@blogs[0].Category.CategoryName</span>
+                        <div class="text">
+                            <h2>@blogs[0].BlogTitle</h2>
+                            <span class="date">&nbsp;-&nbsp; @blogs[0].BlogDate.ToString("dd MMM yyyy")</span>
+                        </div>
+                    </a>
+                }
+            </div>
+
+            <div class="col-md-7">
+                @if (blogs.Count > 1)
+                {
+                    <a asp-controller="Blogs" asp-action="GetBlogDetails" asp-route-blogId="@blogs[1].BlogId" class="hentry img-2 v-height mb30 gradient" style="background-image: url('@blogs[1].BlogImageUrl');">
+                        <span class="post-category text-white bg-success">@blogs[1].Category.CategoryName</span>
+                        <div class="text text-sm">
+                            <h2>@blogs[1].BlogTitle</h2>
+                            <span class="date">&nbsp;-&nbsp; @blogs[1].BlogDate.ToString("dd MMM yyyy")</span>
+                        </div>
+                    </a>
+                }
+                <div class="two-col d-block d-md-flex">
+                    @if(blogs.Count > 2)
+                    {
+                        <a asp-controller="Blogs" asp-action="GetBlogDetails" asp-route-blogId="@blogs[2].BlogId" class="hentry v-height img-2 gradient" style="background-image: url('@blogs[2].BlogImageUrl');">
+                            <span class="post-category text-white bg-primary">@blogs[2].Category.CategoryName</span>
+                            <div class="text text-sm">
+                                <h2>@blogs[2].BlogTitle</h2>
+                                <span class="date">&nbsp;-&nbsp; @blogs[2].BlogDate.ToString("dd MMM yyyy")</span>
+                            </div>
+                        </a>
+                    }
+                    @if (blogs.Count > 3)
+                    {
+                        <a asp-controller="Blogs" asp-action="GetBlogDetails" asp-route-blogId="@blogs[3].BlogId" class="hentry v-height img-2 ml-auto gradient" style="background-image: url('@blogs[3].BlogImageUrl');">
+                            <span class="post-category text-white bg-warning">@blogs[3].Category.CategoryName</span>
+                            <div class="text text-sm">
+                                <h2>@blogs[3].BlogTitle</h2>
+                                <span class="date">&nbsp;-&nbsp; @blogs[3].BlogDate.ToString("dd MMM yyyy")</span>
+                            </div>
+                        </a>
+                    }
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
