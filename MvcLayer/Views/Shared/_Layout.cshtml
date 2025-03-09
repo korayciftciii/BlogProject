@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MvcLayer</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MvcLayer.styles.css" asp-append-version="true" />
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700|Playfair+Display:400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="~/Template/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="~/Template/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Template/css/magnific-popup.css">
+    <link rel="stylesheet" href="~/Template/css/jquery-ui.css">
+    <link rel="stylesheet" href="~/Template/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Template/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/Template/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/Template/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="~/Template/css/aos.css">
+    <link rel="stylesheet" href="~/Template/css/style.css">
+</head>
+<body>
+    <div class="site-wrap">
+    <header>
+      <partial name="_Navbar"/>
+    </header>
+    
+        <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <footer>
+       <partial name="_Footer"/>
+    </footer>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/Template/js/jquery-3.3.1.min.js"></script>
+    <script src="~/Template/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="~/Template/js/jquery-ui.js"></script>
+    <script src="~/Template/js/popper.min.js"></script>
+    <script src="~/Template/js/bootstrap.min.js"></script>
+    <script src="~/Template/js/owl.carousel.min.js"></script>
+    <script src="~/Template/js/jquery.stellar.min.js"></script>
+    <script src="~/Template/js/jquery.countdown.min.js"></script>
+    <script src="~/Template/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/Template/js/bootstrap-datepicker.min.js"></script>
+    <script src="~/Template/js/aos.js"></script>
+    <script src="~/Template/js/main.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

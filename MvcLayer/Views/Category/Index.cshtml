@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Category>
+<div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url('/images/img_4.jpg');">
+    <div class="container">
+        <div class="row same-height justify-content-center">
+            <div class="col-md-12 col-lg-10">
+                <div class="post-entry text-center">
+                    <h1 class="">Kategoriler</h1>
+                    <p class="lead mb-4 text-white">Size en uygun kategorileri keşfedin.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br/>
+<div class="row mb-5">
+    <div class="col-12">
+        <h2 class="fw-bold text-center mb-4">Bütün Kategoriler</h2>
+    </div>
+</div>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="entry2 card shadow-lg border-0">
+                <a asp-controller="Category" asp-action="CategoryDetail" asp-route-categoryId="@item.CategoryId">
+                    <img src="@item.CategoryImgUrl" alt="@item.CategoryName" class="img-fluid rounded-top category-img">
+                </a>
+                <div class="card-body text-center">
+                    <h5 class="card-title">
+                        <a asp-controller="Category" asp-action="CategoryDetail" asp-route-categoryId="@item.CategoryId" class="text-dark text-decoration-none fw-semibold">
+                            @item.CategoryName
+                        </a>
+                    </h5>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<partial name="OtherBlogs"/>
+
+<partial name="NewsLetter"/>
+
+

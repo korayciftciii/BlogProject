@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Blog>
+
+@{
+    var firstBlog = Model.FirstOrDefault();
+    var categoryName = firstBlog?.Category?.CategoryName ?? "Kategori";
+    var categoryDescription = firstBlog?.Category?.CategoryDescription ?? "Bu kategori hakkında açıklama bulunmamaktadır.";
+}
+<div class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <span>Kategori</span>
+                <h3>@categoryName</h3>
+                <p>@categoryDescription</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <partial name="BlogCards" model="@item" />
+    }
+</div>
+
+<partial name="NewsLetter"/>
