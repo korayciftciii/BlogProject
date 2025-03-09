@@ -12,8 +12,8 @@
                 <span>&nbsp;-&nbsp; @Model.BlogDate.ToString("dd MMM yyyy")</span>
             </div>
 
-            <p>@Model.BlogContent</p>
-            <p><a asp-controller="Blogs" asp-action="GetBlogDetails" asp-route-blogId="@Model.BlogId">Daha Fazla...</a></p>
+            <p>@Model?.BlogContent?.Substring(0,Model.BlogContent.Substring(0,200).LastIndexOf(" "))...</p>
+            <p><a asp-controller="Blogs" asp-action="GetBlogDetails" asp-route-blogId="@Model?.BlogId">Daha Fazla...</a></p>
         </div>
     </div>
 </div> 
