@@ -2,6 +2,8 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using MvcLayer.Models;
 using Services.Contracts;
+using X.PagedList.Extensions;
+
 
 namespace MvcLayer.Controllers
 {
@@ -16,12 +18,13 @@ namespace MvcLayer.Controllers
             _serviceManager = serviceManager;
         }
 
-        public async Task<IActionResult>  Index()
+        public async Task<IActionResult>  Index(int page=1)
         {
-            ViewData["Title"] = "Anasayfa";
+            ViewData["Title"] = "Blog Portalý | Anasayfa";
             var blogs = await _serviceManager.BlogService.GetAllBlogAsync(false);
-            ;
-            return View(blogs);
+            var list = blogs.AsQueryable().ToPagedList(page, 3); // AsQueryable() ekledik
+
+            return View(list);
         }
 
 
