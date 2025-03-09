@@ -20,6 +20,7 @@ namespace Repositories.EFCore
         DbSet<Contact> Contacts { get; set; }
         DbSet<Author> Authors { get; set; }
         DbSet<Admin> Admins { get; set; }
+        DbSet<SubscribeMail> SubscribeMail {get;set;}
 
     }
 }
