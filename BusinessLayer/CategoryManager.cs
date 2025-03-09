@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Entities.DataTransferObject;
 using Entities.Models;
+using Microsoft.EntityFrameworkCore;
 using Repositories.Contract;
 using Repositories.Contracts;
 using Services.Contracts;
@@ -49,8 +50,9 @@ namespace Services
 
 
             var categories = await _repositoryManager.Category.GetAllCategoriesAsync(trackChanges);
-
-            return categories;
+            var categoryList = categories.Include(b => b.Blogs)
+                                .ToList();
+            return categoryList;
         
         
         }

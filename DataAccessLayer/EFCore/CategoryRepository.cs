@@ -22,12 +22,10 @@ namespace Repositories.EFCore
         public void DeleteOneCategory(Category category)=>Delete(category);
 
 
-        public async Task<IEnumerable<Category>> GetAllCategoriesAsync(bool trackChanges)
-        {
-            var categories = await FindAll(trackChanges).ToListAsync();
-            return categories;
-        }
-        
+        public async Task<IQueryable<Category>> GetAllCategoriesAsync(bool trackChanges) => await Task.FromResult(FindAll(trackChanges));
+
+
+
         public async Task<Category> GetCategoryByIdAsync(int categoryId, bool trackChanges)=> await FindByCondition(b => b.CategoryId.Equals(categoryId), trackChanges).SingleOrDefaultAsync();
 
 

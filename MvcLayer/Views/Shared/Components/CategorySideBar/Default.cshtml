@@ -3,14 +3,14 @@
 <div class="sidebar-box">
     <h3 class="heading">Categories</h3>
     <ul class="categories">
-        @if (Model != null && Model.Any())
+        @if (Model?.Any() == true)
         {
             @foreach (var item in Model)
             {
                 <li>
-                    <a asp-controller="Category" asp-action="CategoryDetails" asp-route-categoryId="@item?.CategoryId">
+                    <a asp-controller="Category" asp-action="CategoryDetail" asp-route-categoryId="@(item?.CategoryId ?? 0)">
                         @(item?.CategoryName ?? "Unknown")
-                        <span>@(item?.Blogs != null && item.Blogs.Count() > 0 ? item.Blogs.Count().ToString() : "0")</span>
+                        <span>@(item?.Blogs?.Count() ?? 0)</span>
                     </a>
                 </li>
             }
