@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Blog>
+﻿@model IEnumerable<Blog> 
 @await Component.InvokeAsync("FeauturedPosts")
 <div class="site-section">
     <div class="container">
@@ -13,7 +13,7 @@
     </div>
 </div>
 
-@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+ @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page })) 
 @await Component.InvokeAsync("OtherPosts")
 <partial name="NewsLetter"/>
 

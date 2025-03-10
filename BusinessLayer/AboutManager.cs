@@ -1,4 +1,5 @@
-﻿using Repositories.Contracts;
+﻿using Entities.Models;
+using Repositories.Contracts;
 using Services.Contracts;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,12 @@ namespace Services
         {
             _repositoryManager = repositoryManager;
            
+        }
+
+        public async Task<IEnumerable<About>> GetAboutContentAsync(bool trackChanges)
+        {
+            var content = await _repositoryManager.About.GetAboutContentAsync(trackChanges);
+            return content;
         }
     }
 }

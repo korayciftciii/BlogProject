@@ -1,4 +1,5 @@
 ﻿using Entities.Models;
+using Microsoft.EntityFrameworkCore;
 using Repositories.Contract;
 using System;
 using System.Collections.Generic;
@@ -13,5 +14,8 @@ namespace Repositories.EFCore
         public AboutRepository(RepositoryContext repositoryContext) : base(repositoryContext)
         {
         }
+
+        public async Task<IEnumerable<About>> GetAboutContentAsync(bool trackChanges) => await FindAll(trackChanges).ToListAsync();
+      
     }
 }

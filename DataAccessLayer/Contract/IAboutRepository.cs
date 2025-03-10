@@ -10,6 +10,6 @@ namespace Repositories.Contract
 {
     public interface IAboutRepository :IRepositoryBase<About>
     {
-
+        Task<IEnumerable<About>> GetAboutContentAsync(bool trackChanges);
     }
 }

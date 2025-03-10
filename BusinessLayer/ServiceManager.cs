@@ -17,7 +17,7 @@ namespace Services
         private readonly Lazy<ISubscribeMailService> _subscribeMailService;
         public ServiceManager(IRepositoryManager repositoryManager,IMapper mapper)
         {
-            //  _aboutService= new Lazy<IAboutService>(() => new AboutManager(repositoryManager,mapper));
+            _aboutService = new Lazy<IAboutService>(() => new AboutManager(repositoryManager));
             //_authorService = new Lazy<IAuthorService>(()=>new AuthManager(repositoryManager,mapper));
             _categoryService = new Lazy<ICategoryService>(() => new CategoryManager(repositoryManager, mapper));
             _blogService = new Lazy<IBlogService>(() => new BlogManager(repositoryManager, mapper));

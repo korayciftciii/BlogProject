@@ -19,15 +19,11 @@ namespace MvcLayer.Controllers
             _serviceManager = serviceManager;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> CreateSubscribe([FromForm] SubscribeMailDtoForInsertion subscribeDto)
-        {
-            var model = await _serviceManager.SubscribeMailService.CreateOneSubscribeAsync(subscribeDto);
-          return  RedirectToAction();
-        }
+       
 
-        public async Task<IActionResult>  Index(int page=1)
+        public async Task<IActionResult>  Index(int page = 1)
         {
+            //
             ViewData["Title"] = "Blog Portalý | Anasayfa";
             var blogs = await _serviceManager.BlogService.GetAllBlogAsync(false);
             var list = blogs.AsQueryable().ToPagedList(page, 3); // AsQueryable() ekledik

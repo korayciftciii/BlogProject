@@ -1,12 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Services.Contracts;
+using System.Threading.Tasks;
 
 namespace MvcLayer.Controllers
 {
     public class AboutUsController : Controller
     {
-        public IActionResult Index()
+        private readonly IServiceManager _serviceManager;
+        public AboutUsController(IServiceManager serviceManager)
         {
-            return View();
+            _serviceManager = serviceManager;
+        }
+   
+        public async Task<IActionResult> Index()
+        {
+            var content = await _serviceManager.AboutService.GetAboutContentAsync(false);
+            return View(content);
         }
       
     }
