@@ -17,7 +17,7 @@ namespace Repositories.EFCore
         private readonly Lazy<ICategoryRepository> _categoryRepository;
         private readonly Lazy<ICommentRepository> _commentRepository;
         private readonly Lazy<IContactRepository> _contactRepository;
-
+        private readonly Lazy<ISubscribeMailRepository> _subscribeMailRepository;
         public RepositoryManager(RepositoryContext repositoryContext)
         {
             _repositoryContext = repositoryContext;
@@ -27,6 +27,7 @@ namespace Repositories.EFCore
             _categoryRepository = new Lazy<ICategoryRepository>(() => new CategoryRepository(_repositoryContext));//LAZY LOADING
             _commentRepository = new Lazy<ICommentRepository>(() => new CommentRepository(_repositoryContext));//LAZY LOADING
             _contactRepository = new Lazy<IContactRepository>(() => new ContactRepository(_repositoryContext));//LAZY LOADING
+            _subscribeMailRepository = new Lazy<ISubscribeMailRepository>(() => new SubscribeMailRepository(_repositoryContext));
         }
 
         
@@ -41,7 +42,7 @@ namespace Repositories.EFCore
         public IBlogRepository Blog => _blogRepository.Value;
 
         public ICommentRepository Comment => _commentRepository.Value;
-
+        public ISubscribeMailRepository SubscribeMail=> _subscribeMailRepository.Value;
         public async Task SaveAsync()
         {
             await _repositoryContext.SaveChangesAsync();

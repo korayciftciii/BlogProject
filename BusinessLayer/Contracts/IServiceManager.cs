@@ -12,6 +12,7 @@ namespace Services.Contracts
         IAuthorService AuthorService { get; }
         ICategoryService CategoryService { get; }
         IBlogService BlogService { get; }   
+        ISubscribeMailService SubscribeMailService { get; }
         
     }
 }

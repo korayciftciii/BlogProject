@@ -14,6 +14,9 @@ namespace webApi.Infrastructure.AutoMapper
             CreateMap<BlogDtoForUpdate,Blog>().ReverseMap();
             CreateMap<Blog, BlogDto>();
             CreateMap<BlogDtoForInsertion, Blog>();
+            CreateMap<SubscribeMail, SubscribeMailDto>();
+            CreateMap<SubscribeMailDtoForInsertion, SubscribeMail>();
+            //CreateMap<SubscribeMailDtoForUpdate, SubscribeMail>().ReverseMap();
         }
     }
 }

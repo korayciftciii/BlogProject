@@ -22,6 +22,7 @@ namespace MvcLayer.Infrastructure
             Services.AddScoped<ICategoryRepository,CategoryRepository>();
             Services.AddScoped<ICommentRepository,CommentRepository>();
             Services.AddScoped<IContactRepository,ContactRepository>();
+            Services.AddScoped<ISubscribeMailRepository, SubscribeMailRepository>();
         }
         public static void ConfigureServiceRegistration(this IServiceCollection Services)
         {
@@ -29,6 +30,7 @@ namespace MvcLayer.Infrastructure
             Services.AddScoped<IAboutService, AboutManager>();
             Services.AddScoped<ICategoryService,CategoryManager>();
             Services.AddScoped<IBlogService, BlogManager>();
+            Services.AddScoped<ISubscribeMailService, SubscribeMailManager>();
 
         }
     }

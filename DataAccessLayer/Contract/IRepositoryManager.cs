@@ -15,7 +15,7 @@ namespace Repositories.Contracts
         IBlogRepository Blog { get; }
         ICommentRepository Comment { get; }
         IAuthorRepository Author { get; }
-
+        ISubscribeMailRepository SubscribeMail { get; }
 
         Task SaveAsync();
     }
