@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Entities.DataTransferObject;
 using Entities.Models;
 using Microsoft.EntityFrameworkCore;
 using Repositories.Contracts;
@@ -19,6 +20,18 @@ namespace Services
         {
             _repositoryManager = repositoryManager;
             _mapper = mapper;
+        }
+
+        public async Task<CommentDto> CreateOneCommentAsync(CommentDtoForInsertion commentDto)
+        {
+         if(commentDto==null)
+            {
+                throw new ArgumentNullException(nameof(commentDto));
+            }
+            var entity = _mapper.Map<Comment>(commentDto);
+            _repositoryManager.Comment.CreateOneComment(entity);
+            await _repositoryManager.SaveAsync();
+            return _mapper.Map<CommentDto>(entity);
         }
 
         public async Task<IEnumerable<Comment>> GetCommentsByIdAsync(int id, bool trackChanges)

@@ -11,38 +11,41 @@ namespace Repositories.EFCore
     public class RepositoryManager : IRepositoryManager
     {
         private readonly RepositoryContext _repositoryContext;
-        private readonly Lazy<IAboutRepository> _aboutRepository;
-        private readonly Lazy<IAuthorRepository> _authorRepository;
-        private readonly Lazy<IBlogRepository> _blogRepository;
-        private readonly Lazy<ICategoryRepository> _categoryRepository;
-        private readonly Lazy<ICommentRepository> _commentRepository;
-        private readonly Lazy<IContactRepository> _contactRepository;
-        private readonly Lazy<ISubscribeMailRepository> _subscribeMailRepository;
-        public RepositoryManager(RepositoryContext repositoryContext)
+        private readonly IAboutRepository _aboutRepository;
+        private readonly IAuthorRepository _authorRepository;
+        private readonly IBlogRepository _blogRepository;
+        private readonly ICategoryRepository _categoryRepository;
+        private readonly ICommentRepository _commentRepository;
+        private readonly IContactRepository _contactRepository;
+        private readonly ISubscribeMailRepository _subscribeMailRepository;
+
+        public RepositoryManager(RepositoryContext repositoryContext,
+            IAboutRepository aboutRepository,
+            IAuthorRepository authorRepository,
+            IBlogRepository blogRepository,
+            ICategoryRepository categoryRepository,
+            ICommentRepository commentRepository,
+            IContactRepository contactRepository,
+            ISubscribeMailRepository subscribeMailRepository)
         {
             _repositoryContext = repositoryContext;
-            _aboutRepository = new Lazy<IAboutRepository>(()=>new AboutRepository(_repositoryContext));//LAZY LOADING
-            _authorRepository = new Lazy<IAuthorRepository>(() => new AuthorRepository(_repositoryContext));//LAZY LOADING
-            _blogRepository = new Lazy<IBlogRepository>(() => new BlogRepository(_repositoryContext));//LAZY LOADING
-            _categoryRepository = new Lazy<ICategoryRepository>(() => new CategoryRepository(_repositoryContext));//LAZY LOADING
-            _commentRepository = new Lazy<ICommentRepository>(() => new CommentRepository(_repositoryContext));//LAZY LOADING
-            _contactRepository = new Lazy<IContactRepository>(() => new ContactRepository(_repositoryContext));//LAZY LOADING
-            _subscribeMailRepository = new Lazy<ISubscribeMailRepository>(() => new SubscribeMailRepository(_repositoryContext));
+            _aboutRepository = aboutRepository;
+            _authorRepository = authorRepository;
+            _blogRepository = blogRepository;
+            _categoryRepository = categoryRepository;
+            _commentRepository = commentRepository;
+            _contactRepository = contactRepository;
+            _subscribeMailRepository = subscribeMailRepository;
         }
 
-        
+        public IAboutRepository About => _aboutRepository;
+        public IAuthorRepository Author => _authorRepository;
+        public ICategoryRepository Category => _categoryRepository;
+        public IContactRepository Contact => _contactRepository;
+        public IBlogRepository Blog => _blogRepository;
+        public ICommentRepository Comment => _commentRepository;
+        public ISubscribeMailRepository SubscribeMail => _subscribeMailRepository;
 
-        public IAboutRepository About => _aboutRepository.Value;
-        public IAuthorRepository Author => _authorRepository.Value;
-
-        public ICategoryRepository Category => _categoryRepository.Value;
-
-        public IContactRepository Contact => _contactRepository.Value;
-
-        public IBlogRepository Blog => _blogRepository.Value;
-
-        public ICommentRepository Comment => _commentRepository.Value;
-        public ISubscribeMailRepository SubscribeMail=> _subscribeMailRepository.Value;
         public async Task SaveAsync()
         {
             await _repositoryContext.SaveChangesAsync();

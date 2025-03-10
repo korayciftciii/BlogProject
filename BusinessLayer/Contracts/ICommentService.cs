@@ -1,4 +1,5 @@
-﻿using Entities.Models;
+﻿using Entities.DataTransferObject;
+using Entities.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,7 @@ namespace Services.Contracts
     public interface ICommentService
     {
         Task<IEnumerable<Comment>> GetCommentsByIdAsync(int id, bool trackChanges);
+        Task<CommentDto> CreateOneCommentAsync(CommentDtoForInsertion commentDto);
+
     }
 }

@@ -14,6 +14,9 @@ namespace Repositories.EFCore
         public CommentRepository(RepositoryContext repositoryContext) : base(repositoryContext)
         { }
 
+        public void CreateOneComment(Comment comment) => Create(comment);
+       
+
         public async Task<IEnumerable<Comment>> GetCommentsByIdAsync(int blogId, bool trackChanges)
         {
             var comments = await FindAll(trackChanges).ToListAsync();

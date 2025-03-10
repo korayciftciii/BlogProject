@@ -14,7 +14,7 @@
 
    
     <!-- END sidebar-box -->
-    <partial name="~/Views/Author/_AuthorPopularBlogs.cshtml" />
+    <partial name="~/Views/Author/_AuthorPopularBlogs.cshtml" model="@Model.Author.Blogs"/>
     <!-- END sidebar-box -->
     @await Component.InvokeAsync("CategorySideBar")
     <!-- END sidebar-box -->

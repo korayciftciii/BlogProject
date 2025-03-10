@@ -11,7 +11,7 @@ namespace MvcLayer.Infrastructure
     {
         public static void ConfigureDbContext(this IServiceCollection Services, IConfiguration Configuration)
         {
-            Services.AddDbContext<RepositoryContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            Services.AddDbContext<RepositoryContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")),ServiceLifetime.Scoped);
         }
         public static void ConfigureRepositoryRegistration(this IServiceCollection Services)
         {
