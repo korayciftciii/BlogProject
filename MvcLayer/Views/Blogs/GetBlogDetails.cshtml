@@ -1,7 +1,8 @@
 ﻿@model  Blog
   
 
-<div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url('@(Model?.BlogImageUrl)');">
+<div class="site-cover site-cover-sm same-height overlay single-page"
+     style="background-image: url('@(Model?.BlogImageUrl)'); width:100%; background-size: cover; background-position: center;">
     <div class="container">
         <div class="row same-height justify-content-center">
             <div class="col-md-12 col-lg-10">
@@ -26,6 +27,7 @@
         </div>
     </div>
 </div>
+
 
     <section class="site-section py-lg">
         <div class="container">
@@ -59,7 +61,8 @@
                     </div>
 
 
-                    <partial name="CommentCard"/>
+                    <partial name="~/Views/Comment/CommentCard.cshtml" model="@Model.Comments"/>
+               
 
                 <div class="comment-form-wrap pt-5">
                     <h3 class="mb-5">Leave a comment</h3>
@@ -91,7 +94,7 @@
 
                 <!-- END main-content -->
 
-                <partial name="SideBar"/>
+                <partial name="SideBar" model="@Model"/>
 
             </div>
         </div>

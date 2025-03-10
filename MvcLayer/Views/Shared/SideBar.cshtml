@@ -1,4 +1,4 @@
-﻿
+﻿@model Blog
 <div class="col-md-12 col-lg-4 sidebar">
     <div class="sidebar-box search-form-wrap">
         <form action="#" class="search-form">
@@ -10,7 +10,7 @@
     </div>
     <!-- END sidebar-box -->
 
-    <partial name="~/Views/Author/_AuthorSideBar.cshtml" />
+    <partial name="~/Views/Author/_AuthorSideBar.cshtml" model="@Model" />
 
    
     <!-- END sidebar-box -->

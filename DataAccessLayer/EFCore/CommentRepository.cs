@@ -1,4 +1,5 @@
 ﻿using Entities.Models;
+using Microsoft.EntityFrameworkCore;
 using Repositories.Contract;
 using System;
 using System.Collections.Generic;
@@ -12,5 +13,13 @@ namespace Repositories.EFCore
     {
         public CommentRepository(RepositoryContext repositoryContext) : base(repositoryContext)
         { }
+
+        public async Task<IEnumerable<Comment>> GetCommentsByIdAsync(int blogId, bool trackChanges)
+        {
+            var comments = await FindAll(trackChanges).ToListAsync();
+            var commentsById = comments.Where(a => a.BlogId.Equals(blogId));
+            return commentsById;
+        }
+        
     }
 }

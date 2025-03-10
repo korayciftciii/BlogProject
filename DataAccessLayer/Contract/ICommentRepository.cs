@@ -10,5 +10,6 @@ namespace Repositories.Contract
 {
     public interface ICommentRepository : IRepositoryBase<Comment>
     {
+        Task<IEnumerable<Comment>> GetCommentsByIdAsync(int commentId, bool trackChanges);
     }
 }

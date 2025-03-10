@@ -15,6 +15,7 @@ namespace Services
         private readonly Lazy<ICategoryService> _categoryService;
         private readonly Lazy<IBlogService> _blogService;
         private readonly Lazy<ISubscribeMailService> _subscribeMailService;
+        private readonly Lazy<ICommentService> _commentService;
         public ServiceManager(IRepositoryManager repositoryManager,IMapper mapper)
         {
             _aboutService = new Lazy<IAboutService>(() => new AboutManager(repositoryManager));
@@ -22,6 +23,7 @@ namespace Services
             _categoryService = new Lazy<ICategoryService>(() => new CategoryManager(repositoryManager, mapper));
             _blogService = new Lazy<IBlogService>(() => new BlogManager(repositoryManager, mapper));
             _subscribeMailService = new Lazy<ISubscribeMailService>(() => new SubscribeMailManager(repositoryManager, mapper));
+            _commentService = new Lazy<ICommentService>(() => new CommentManager(repositoryManager, mapper));
         }
 
         public IAboutService AboutService => _aboutService.Value;
@@ -29,6 +31,7 @@ namespace Services
         public ICategoryService CategoryService => _categoryService.Value;
         public IBlogService BlogService => _blogService.Value;
         public ISubscribeMailService SubscribeMailService=>_subscribeMailService.Value;
+        public ICommentService CommentService => _commentService.Value;
 
     }
 }

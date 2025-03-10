@@ -51,6 +51,7 @@ namespace Services
             var blogs = await _repositoryManager.Blog.GetAllBlogAsync(trackChanges);
             var blogList = blogs.Include(b => b.Category)
                                 .Include(b => b.Author)
+                                .Include(b=>b.Comments)
                                 .ToList();
             return blogList;
         }
@@ -60,6 +61,7 @@ namespace Services
             var blogs = await _repositoryManager.Blog.GetAllBlogAsync(trackChanges);  // Task çözülüyor
             var blog = await blogs.Include(b => b.Category)
                                   .Include(b => b.Author)
+                                  .Include(b=>b.Comments)
                                   .FirstOrDefaultAsync(b => b.BlogId == id);
 
             return blog;

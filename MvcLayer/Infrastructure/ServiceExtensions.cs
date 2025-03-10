@@ -31,6 +31,7 @@ namespace MvcLayer.Infrastructure
             Services.AddScoped<ICategoryService,CategoryManager>();
             Services.AddScoped<IBlogService, BlogManager>();
             Services.AddScoped<ISubscribeMailService, SubscribeMailManager>();
+            Services.AddScoped<ICommentService, CommentManager>();
 
         }
     }
