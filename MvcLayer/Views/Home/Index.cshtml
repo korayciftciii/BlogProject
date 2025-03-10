@@ -15,5 +15,5 @@
 
  @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page })) 
 @await Component.InvokeAsync("OtherPosts")
-<partial name="NewsLetter"/>
+<partial name="~/Views/NewsLetter/_NewsLetter.cshtml" />
 

@@ -14,23 +14,27 @@ namespace MvcLayer.Controllers
            
             _serviceManager = serviceManager;
         }
-        [HttpPost]
-        public async Task<PartialViewResult> Subscribe([FromForm] SubscribeMailDtoForInsertion subscribeDto)
+        public IActionResult Index()
         {
-            var model = await _serviceManager.SubscribeMailService.CreateOneSubscribeAsync(subscribeDto);
-
-            if (model != null)
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> NewSubscribe([FromForm] SubscribeMailDtoForInsertion subscribeDto)
+        {
+            if(ModelState.IsValid)
             {
-                // Başarılı abonelik işlemi
-                TempData["SuccessMessage"] = "Abonelik başarıyla tamamlandı!";
-                return PartialView();
+                await _serviceManager.SubscribeMailService.CreateOneSubscribeAsync(subscribeDto);
+                    
+                    return RedirectToAction("Index");
+                
             }
             else
             {
                 // Eğer model null dönerse (hata veya kayıt başarısız)
-                TempData["ErrorMessage"] = "Abonelik sırasında bir hata oluştu. Lütfen tekrar deneyin.";
-                return PartialView();
+               
+                return View();
             }
+    
         }
 
     }
