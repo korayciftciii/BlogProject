@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using Entities.DataTransferObject;
 using Microsoft.AspNetCore.Mvc;
 using MvcLayer.Models;
 using Services.Contracts;
@@ -16,6 +17,13 @@ namespace MvcLayer.Controllers
         {
             _logger = logger;
             _serviceManager = serviceManager;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateSubscribe([FromForm] SubscribeMailDtoForInsertion subscribeDto)
+        {
+            var model = await _serviceManager.SubscribeMailService.CreateOneSubscribeAsync(subscribeDto);
+          return  RedirectToAction();
         }
 
         public async Task<IActionResult>  Index(int page=1)
