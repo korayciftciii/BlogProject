@@ -19,6 +19,8 @@ namespace webApi.Infrastructure.AutoMapper
             //CreateMap<SubscribeMailDtoForUpdate, SubscribeMail>().ReverseMap();
             CreateMap<Comment, CommentDto>();
             CreateMap<CommentDtoForInsertion, Comment>();
+            CreateMap<Contact, ContactDto>();
+            CreateMap<ContactDtoForInsertion, Contact>();
         }
     }
 }

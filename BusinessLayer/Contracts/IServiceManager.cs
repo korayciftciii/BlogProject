@@ -14,6 +14,7 @@ namespace Services.Contracts
         IBlogService BlogService { get; }   
         ISubscribeMailService SubscribeMailService { get; }
         ICommentService CommentService { get; }
+        IContactService ContactService { get; }
         
     }
 }

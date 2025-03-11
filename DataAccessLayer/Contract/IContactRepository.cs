@@ -10,5 +10,6 @@ namespace Repositories.Contract
 {
     public interface IContactRepository : IRepositoryBase<Contact>
     {
+        void CreateMessage(Contact contact);
     }
 }

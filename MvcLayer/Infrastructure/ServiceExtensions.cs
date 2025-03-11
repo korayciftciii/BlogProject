@@ -33,6 +33,7 @@ namespace MvcLayer.Infrastructure
             Services.AddScoped<ISubscribeMailService, SubscribeMailManager>();
             Services.AddScoped<ICommentService, CommentManager>();
             Services.AddScoped<IAuthorService, AuthorManager>();
+            Services.AddScoped<IContactService, ContactManager>();
 
         }
     }

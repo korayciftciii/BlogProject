@@ -12,5 +12,8 @@ namespace Repositories.EFCore
     {
         public ContactRepository(RepositoryContext repositoryContext) : base(repositoryContext)
         { }
+
+        public void CreateMessage(Contact contact) => Create(contact);
+       
     }
 }
