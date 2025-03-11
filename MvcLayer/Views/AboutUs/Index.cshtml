@@ -1,11 +1,11 @@
-﻿@model IEnumerable<About>
-    <div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url('images/img_4.jpg');">
+﻿@model About
+    <div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url('@Model.AboutCarouselImage');">
         <div class="container">
             <div class="row same-height justify-content-center">
                 <div class="col-md-12 col-lg-10">
                     <div class="post-entry text-center">
-                        <h1 class="">About Us</h1>
-                        <p class="lead mb-4 text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, adipisci?</p>
+                        <h1 class="">Hakkımızda</h1>
+                    <p class="lead mb-4 text-white">Bilginin ışığında keşfet, ilhamın peşinde yaz!</p>
                     </div>
                 </div>
             </div>
@@ -17,16 +17,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 order-md-2">
-                    <img src="images/img_1.jpg" alt="Image" class="img-fluid">
+                    <img src="@Model.AboutImage1" alt="Image" class="img-fluid">
                 </div>
                 <div class="col-md-5 mr-auto order-md-1">
-                    <h2>We Love To Explore</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea voluptate odit corrupti vitae cupiditate explicabo, soluta quibusdam necessitatibus, provident reprehenderit, dolorem saepe non eligendi possimus autem repellendus nesciunt, est deleniti libero recusandae officiis. Voluptatibus quisquam voluptatum expedita recusandae architecto quibusdam.</p>
-                    <ul class="ul-check list-unstyled success">
-                        <li>Onsectetur adipisicing elit</li>
-                        <li>Dolorem saepe non eligendi possimus</li>
-                        <li>Voluptate odit corrupti vitae</li>
-                    </ul>
+                    <h2>@Model.ContentTitle1</h2>
+                    <p>@Model.AboutContent1</p>
+                <ul class="ul-check list-unstyled success">
+                    <li><strong>Misyonumuz:</strong> Kaliteli, güvenilir ve ilham verici içerikler sunarak okuyucularımızın bilgi dağarcığını genişletmek ve onlara yeni bakış açıları kazandırmak. Her bir yazımızda, sizlerin hayatına dokunmayı ve fark yaratmayı amaçlıyoruz.</li>
+                    <li><strong>Vizyonumuz:</strong> Bilgiye erişimi kolaylaştıran, ilham veren ve insanları bir araya getiren bir platform olmak. Gelecekte, daha fazla insana ulaşarak onların hayatlarını olumlu yönde değiştirmeyi hedefliyoruz.</li>
+                </ul>
                 </div>
             </div>
         </div>
@@ -39,16 +38,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <img src="images/img_1.jpg" alt="Image" class="img-fluid">
+                    <img src="@Model.AboutImage2" alt="Image" class="img-fluid">
                 </div>
                 <div class="col-md-5 ml-auto">
-                    <h2>Learn From Us</h2>
-                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea voluptate odit corrupti vitae cupiditate explicabo, soluta quibusdam necessitatibus, provident reprehenderit, dolorem saepe non eligendi possimus autem repellendus nesciunt, est deleniti libero recusandae officiis. Voluptatibus quisquam voluptatum expedita recusandae architecto quibusdam.</p>
-
+                    <h2>@Model.ContentTitle2</h2>
+                    <p class="mb-4">@Model.AboutContent2</p>
                     <ul class="ul-check list-unstyled success">
-                        <li>Onsectetur adipisicing elit</li>
-                        <li>Dolorem saepe non eligendi possimus</li>
-                        <li>Voluptate odit corrupti vitae</li>
+                    <li><strong>Değerlerimiz:</strong> Samimiyet, güvenilirlik, yenilikçilik ve topluluk odaklılık. Her bir içeriğimizi bu değerler doğrultusunda hazırlıyor ve sizlerle paylaşıyoruz.</li>
                     </ul>
                 </div>
             </div>

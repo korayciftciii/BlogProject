@@ -1,11 +1,11 @@
 ﻿@model Blog
 <div class="sidebar-box">
     <div class="bio text-center">
-        <img src="" alt="Image Placeholder" class="img-fluid mb-5">
+        <img src="@Model.Author.AuthorImageUrl" alt="Image Placeholder" class="img-fluid mb-5">
         <div class="bio-body">
             <h2>@Model.Author.AuthorName</h2>
             <p class="mb-4">@Model.Author.AuthorName</p>
-            <p><a asp-controller="Author" asp-action="AuthorBio" asp-route-authorId="@Model.Author.AuthorId" class="btn btn-primary btn-sm rounded px-4 py-2">Biyomu Oku</a></p>
+            <p><a asp-controller="Author" asp-action="AuthorDetails" asp-route-authorId="@Model.Author.AuthorId" class="btn btn-primary btn-sm rounded px-4 py-2">Biyomu Oku</a></p>
             <p class="social">
                 <a href="#" class="p-2"><span class="fa fa-facebook"></span></a>
                 <a href="#" class="p-2"><span class="fa fa-twitter"></span></a>

@@ -71,3 +71,230 @@ body {
     .card-title a:hover {
         color: #007bff;
     }
+
+
+
+.subscribe-box {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.email-input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.subscribe-btn {
+    margin-left: 10px;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: 0.3s ease-in-out;
+}
+
+    .subscribe-btn:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+    }
+
+@media (max-width: 768px) {
+    .d-flex {
+        flex-direction: column;
+    }
+
+    .subscribe-btn {
+        margin-top: 10px;
+        width: 100%;
+    }
+}
+/* Yatay kaydýrmayý engelle */
+html, body {
+    overflow-x: hidden;
+}
+
+/* Kartlarýn kenarlara yapýþmamasý için padding ekle */
+.custom-container {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Kartlar arasý boþluk */
+.card {
+    margin-bottom: 20px;
+}
+/* Blog kartý stilini düzenle */
+.entry2 {
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+}
+
+    .entry2:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .entry2 img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+
+.excerpt {
+    padding: 20px;
+}
+
+.post-category {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.entry2 h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+    .entry2 h2 a {
+        color: #333;
+        text-decoration: none;
+    }
+
+        .entry2 h2 a:hover {
+            color: #007bff;
+        }
+
+.post-meta {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.author-figure {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+    .author-figure img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+.post-meta span {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.post-meta a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+    .post-meta a:hover {
+        text-decoration: underline;
+    }
+
+.entry2 p {
+    font-size: 1rem;
+    color: #6c757d;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.entry2 a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+    .entry2 a:hover {
+        text-decoration: underline;
+    }
+/* Kategori baþlýðý ve açýklama stilini düzenle */
+.category-header {
+    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Gradient arka plan */
+    padding: 80px 0;
+    margin-bottom: 40px;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+    .category-header::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 10%, transparent 10.01%);
+        background-size: 20px 20px;
+        animation: animateBackground 10s linear infinite;
+        opacity: 0.5;
+    }
+
+@@keyframes animateBackground {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.category-header span {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.category-header h3 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.category-header p {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Mobil uyumluluk */
+@@media (max-width: 767.98px) {
+    .category-header {
+        padding: 60px 0;
+    }
+
+        .category-header h3 {
+            font-size: 2.5rem;
+        }
+
+        .category-header p {
+            font-size: 1.1rem;
+        }
+}

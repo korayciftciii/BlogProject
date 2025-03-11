@@ -15,7 +15,8 @@ namespace MvcLayer.Controllers
         public async Task<IActionResult> Index()
         {
             var content = await _serviceManager.AboutService.GetAboutContentAsync(false);
-            return View(content);
+            
+            return View(content.FirstOrDefault());
         }
       
     }

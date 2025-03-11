@@ -5,10 +5,13 @@
     var categoryName = firstBlog?.Category?.CategoryName ?? "Kategori";
     var categoryDescription = firstBlog?.Category?.CategoryDescription ?? "Bu kategori hakkında açıklama bulunmamaktadır.";
 }
-<div class="py-5 bg-light">
+
+
+
+<div class="category-header">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-8 mx-auto">
                 <span>Kategori</span>
                 <h3>@categoryName</h3>
                 <p>@categoryDescription</p>
@@ -17,11 +20,15 @@
     </div>
 </div>
 
-<div class="row">
-    @foreach (var item in Model)
-    {
-        <partial name="BlogCards" model="@item" />
-    }
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+           
+                <partial name="BlogCards" model="@item" />
+            
+        }
+    </div>
 </div>
 
 <partial name="~/Views/NewsLetter/_NewsLetter.cshtml" />
