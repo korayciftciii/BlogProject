@@ -19,7 +19,7 @@ namespace Services
         public ServiceManager(IRepositoryManager repositoryManager,IMapper mapper)
         {
             _aboutService = new Lazy<IAboutService>(() => new AboutManager(repositoryManager));
-            //_authorService = new Lazy<IAuthorService>(()=>new AuthManager(repositoryManager,mapper));
+            _authorService = new Lazy<IAuthorService>(()=>new AuthorManager(repositoryManager,mapper));
             _categoryService = new Lazy<ICategoryService>(() => new CategoryManager(repositoryManager, mapper));
             _blogService = new Lazy<IBlogService>(() => new BlogManager(repositoryManager, mapper));
             _subscribeMailService = new Lazy<ISubscribeMailService>(() => new SubscribeMailManager(repositoryManager, mapper));

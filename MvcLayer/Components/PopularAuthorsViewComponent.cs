@@ -12,7 +12,9 @@ namespace MvcLayer.Components
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var authors=await _serviceManager.AuthorService.
+            var authors = await _serviceManager.AuthorService.GetAllAuthorsAsync(false);
+
+            return View(authors);
         }
 
     }
