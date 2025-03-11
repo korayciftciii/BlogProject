@@ -31,7 +31,18 @@
         </div>
     </div>
 
-    <partial name="_MeetTheTeam"/>
+            <div class="site-section">
+                <div class="container">
+                     <div class="row mb-5 justify-content-center">
+                        <div class="col-md-5 text-center">
+                              <h2>Yzarlarımız</h2>
+                            <p>Güzide yazarlarımızın sayfalarını inceleyip daha fazla ilgili bloğa ulaşabilirsiniz.</p>
+                        </div>
+                     </div>
+                     @await Component.InvokeAsync("PopularAuthors")
+                </div>
+            </div>
+  
    
 
     <div class="site-section bg-light">

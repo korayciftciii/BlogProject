@@ -13,8 +13,11 @@ namespace MvcLayer.Components
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var authors = await _serviceManager.AuthorService.GetAllAuthorsAsync(false);
-
-            return View(authors);
+            var randomAuthors=authors
+                .OrderBy(b => Guid.NewGuid()) // Rastgele sıralama
+                .Take(3) 
+                .ToList();
+            return View(randomAuthors);
         }
 
     }
