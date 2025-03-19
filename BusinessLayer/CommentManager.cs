@@ -41,5 +41,18 @@ namespace Services
             
             return comment;
         }
+        public async Task DeleteOneCommentAsync(int id, bool trackChanges)
+        {
+            var comment = await _repositoryManager.Comment.GetOneCommentByIdAsync(id, trackChanges);
+
+            _repositoryManager.Comment.DeleteOneComment(comment);
+            await _repositoryManager.SaveAsync();
+        }
+
+        public async Task<Comment> GetOneCommentByIdAsync(int commentId, bool trackChanges)
+        {
+            var comment = await _repositoryManager.Comment.GetOneCommentByIdAsync(commentId, trackChanges);
+            return comment;
+        }
     }
 }

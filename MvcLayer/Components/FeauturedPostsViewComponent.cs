@@ -20,7 +20,7 @@ namespace MvcLayer.Components
               .OrderByDescending(b => b.BlogDate) // Tarihe göre sıralama (yeniden eskiye)
                .Take(5) // Son 5 blogu al
               .ToList();
-            return View(blogs);
+            return View(latestBlogs);
         }
     }
 }

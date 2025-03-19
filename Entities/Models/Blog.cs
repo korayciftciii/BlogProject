@@ -22,7 +22,7 @@ namespace Entities.Models
         [DataType(DataType.ImageUrl)]
         public string? BlogImageUrl { get; set; }
 
-        public DateTime BlogDate { get; set; }
+        public DateTime BlogDate { get; set; }=DateTime.Now;
 
         // Category ile ilişki
         public int CategoryId { get; set; }

@@ -35,7 +35,9 @@
                 <div class="col-md-12 col-lg-8 main-content">
 
                     <div class="post-content-body">
-                        <p>@Model.BlogContent</p>
+                   <p>
+                        @Html.Raw(@Model.BlogContent)
+                    </p> 
                         <div class="row mb-5 mt-5">
                             <div class="col-md-12 mb-4">
                                 <img src="/images/img_1.jpg" alt="Image placeholder" class="img-fluid rounded">
@@ -57,7 +59,7 @@
 
 
                     <div class="pt-5">
-                        <p>Categories:  <a href="#">Food</a>, <a href="#">Travel</a>  Tags: <a href="#">#manila</a>, <a href="#">#asia</a></p>
+                        <p>Categories:  <a asp-controller="Category" asp-action="CategoryDetail" asp-route-categoryId="@Model.Category.CategoryId">@Model.Category.CategoryName</a>, <a href="#">Travel</a>  Tags: <a href="#">#manila</a>, <a href="#">#asia</a></p>
                     </div>
 
 

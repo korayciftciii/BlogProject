@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Comment>
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Yorumlar(@Model.Count().ToString())</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home">Anasayfa</a></li>
+                    <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Blog">Bloglar</a></li>
+                    <li class="breadcrumb-item active">Yorumlar</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+
+        <!-- Timelime example  -->
+        <div class="row">
+            <div class="col-md-12">
+                <!-- The time line -->
+                <div class="timeline">
+                    <!-- timeline time label -->
+                    @foreach (var item in Model)
+                    { 
+                    <div class="time-label">
+                        <span class="bg-success">&nbsp;-&nbsp; @item.CommentDate.ToString("dd MMM yyyy")</span>
+                    </div>
+                    <!-- /.timeline-label -->
+                    <!-- timeline item -->
+                    <div>
+                        <i class="fas fa-envelope bg-blue"></i>
+                        <div class="timeline-item">
+                                <span class="time"><i class="fas fa-clock"></i> @item.CommentDate.ToString("dd MMM yyyy - HH.mm")</span>
+                                <h3 class="timeline-header">@item.UserName | <a href="mailto:@item.UserEmail">@item.UserEmail</a> </h3>
+
+                            <div class="timeline-body">
+                                @item.CommentContent
+                            </div>
+                            <div class="timeline-footer">
+                             <a class="btn btn-info btn-sm" target="_blank" asp-area="" asp-controller="Blogs" asp-action="GetBlogDetails" asp-route-blogId="@item.BlogId">Bloğu İncele</a>
+                            <a class="btn btn-danger btn-sm" asp-action="DeleteComment" asp-route-commentId="@item.CommentId" onclick="return confirm('Silmek istediğinize emin misiniz?');">Sil</a>
+                            </div>
+                        </div>
+                    </div>
+                    }
+    
+                    <div>
+                        <i class="fas fa-clock bg-gray"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+    </div>
+    <!-- /.timeline -->
+
+</section>

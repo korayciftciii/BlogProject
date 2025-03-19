@@ -1,0 +1,101 @@
+﻿@model BlogDtoForUpdate
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Blog Güncelle</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home">Anasayfa</a></li>
+                    <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Blog">Bloglar</a></li>
+                    <li class="breadcrumb-item active">Blog Güncelle (@Model.BlogId)</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+
+<div class="card shadow-lg border-0">
+    <div class="card-header bg-primary text-white">
+        <h3 class="card-title">Blog Güncelle</h3>
+    </div>
+    <div class="card-body">
+        <form method="post" asp-action="UpdateBlog" enctype="multipart/form-data">
+           
+         <input asp-for="BlogId" type="hidden" class="form-control" />
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="BlogTitle" class="font-weight-bold">Blog Başlığı</label>
+                        <input asp-for="BlogTitle" type="text" class="form-control" placeholder="Blog başlığını girin..." required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label asp-for="BlogContent" class="font-weight-bold">Blog İçeriği</label>
+                        <textarea asp-for="BlogContent" class="form-control" rows="5" placeholder="İçeriği girin..." required></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <label class="form-label font-weight-bold">Eski Fotoğraf</label>
+                    <div>
+                        <img class="rounded shadow border" width="150px" height="150px" src="@Model.BlogImageUrl" alt="@Model.BlogTitle" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="BlogImageUrl" class="font-weight-bold">Yeni Görsel Yükle</label>
+                        <input name="file" type="file" class="form-control-file border p-2 rounded" accept=".jpg,.jpeg,.png,.gif" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="BlogDate" class="font-weight-bold">Blog Tarihi</label>
+                        <input asp-for="BlogDate" type="date" class="form-control">
+                        <span asp-validation-for="BlogDate" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="CategoryId" class="font-weight-bold">Kategori</label>
+                        <select asp-for="CategoryId" asp-items="@ViewBag.Categories" class="form-control" required>
+                            <option value="">Bir Kategori Seçin</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="AuthorId" class="font-weight-bold">Yazar</label>
+                        <select asp-for="AuthorId" asp-items="@ViewBag.Authors" class="form-control" required>
+                            <option value="">Bir Yazar Seçin</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between mt-3">
+                <a asp-controller="Blog" asp-action="Index" class="btn btn-outline-secondary">
+                    <i class="fas fa-arrow-left"></i> Geri
+                </a>
+                <button type="submit" class="btn btn-success">
+                    <i class="fas fa-save"></i> Güncelle
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Blog>
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Bloglar</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home">Anasayfa</a></li>
+                    <li class="breadcrumb-item active">Bloglar</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h4>Blog Listesi</h4>
+        <a asp-controller="Blog" asp-action="NewBlog" class="btn btn-primary">+ Blog Oluştur</a>
+    </div>
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Blog Başlığı</th>
+                <th>Kategori</th>
+                <th>Tarih</th>
+                <th>Yazar</th>
+                <th class="text-center">Eylemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if(Model!=null)
+            {
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <td>@item.BlogId</td>
+                        <td>@item.BlogTitle</td>
+                        <td>@item.Category.CategoryName</td>
+                        <td>@item.BlogDate.ToString("dd/MM/yyyy")</td>
+                        <td>@item.Author.AuthorName</td>
+                        <td class="text-center">
+                            <div class="btn-group" role="group">
+                                <a asp-controller="Blog" asp-action="UpdateBlog" asp-route-blogId="@item.BlogId" class="btn btn-warning btn-sm">Güncelle</a>
+                                <a  class="btn btn-danger btn-sm" asp-action="DeleteBlog" asp-route-blogId="@item.BlogId" onclick="return confirm('Silmek istediğinize emin misiniz?');">Sil</a>
+                                <a  class="btn btn-info btn-sm" target="_blank" asp-area="" asp-controller="Blogs" asp-action="GetBlogDetails" asp-route-blogId="@item.BlogId">İncele</a>
+                                <a class="btn btn-dark btn-sm"   asp-controller="Blog" asp-action="GetComments" asp-route-blogId="@item.BlogId">Yorumlar</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="5" class="text-muted fst-italic">
+                        No blogs found. Please create a new one
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

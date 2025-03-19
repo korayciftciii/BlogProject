@@ -27,10 +27,19 @@ app.UseAuthorization();
 
 app.MapStaticAssets();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
-    .WithStaticAssets();
 
+app.UseEndpoints(endpoints => {
+    endpoints.MapAreaControllerRoute(
+        name: "Admin",
+        areaName:"Admin",
+        pattern: "Admin/{controller=Home}/{action=Index}/{id?}"
+
+        );
+    endpoints.MapControllerRoute(
+            name: "default",
+            pattern: "{controller=Home}/{action=Index}/{id?}")
+            .WithStaticAssets();
+    
+});
 
 app.Run();

@@ -12,6 +12,7 @@ namespace Services.Contracts
     {
         Task<IEnumerable<Comment>> GetCommentsByIdAsync(int id, bool trackChanges);
         Task<CommentDto> CreateOneCommentAsync(CommentDtoForInsertion commentDto);
-
+        Task<Comment> GetOneCommentByIdAsync(int commentId, bool trackChanges);
+        Task DeleteOneCommentAsync(int id, bool trackChanges);
     }
 }

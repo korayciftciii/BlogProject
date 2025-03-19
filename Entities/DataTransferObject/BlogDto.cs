@@ -16,12 +16,12 @@ namespace Entities.DataTransferObject
         public string? BlogContent { get; init; }
         public string? BlogImageUrl { get; set; }
 
-        public DateTime BlogDate { get; init; }
+        public DateTime BlogDate { get; init; } = DateTime.Now;
         public int CategoryId { get; init; }
-        public virtual Category Category { get; init; }
+     
 
         public int AuthorId { get; init; }
-        public virtual Author Author { get; init; }
+      
 
        
     }

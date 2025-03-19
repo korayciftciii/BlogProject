@@ -100,13 +100,49 @@ namespace MvcLayer.Migrations
                         .HasMaxLength(1500)
                         .HasColumnType("nvarchar(1500)");
 
+                    b.Property<string>("AuthorEmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("AuthorImageUrl")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("AuthorInsertionDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("AuthorName")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Education")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FacebookLink")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("InsatagramLink")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Location")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Occupation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Skill1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Skill2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Skill3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("XLink")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("AuthorId");
 
